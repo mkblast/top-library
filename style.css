@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 html {
   font-family: 'Inter', sans-serif;
   margin: 0px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -32,8 +38,67 @@ html {
   border-radius: 10px;
   font-size: clamp(1em, 1.5vw, 3em);
   font-weight: bolder;
+  box-shadow: 1px 1px 10px #888888;
 }
 
 .add:hover {
   background-color: #deddda;
+}
+
+.book-shelf {
+  margin: 1em;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.book {
+  margin: 1em;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  gap: 0.5em;
+  box-shadow: 1px 1px 5px #888888;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 0.5em;
+  height: 15em;
+}
+
+.book-title {
+  padding-top: 0.5em;
+  font-size: 1.5em;
+  font-weight: bolder;
+  grid-column: 1 / 3;
+}
+
+.book-author::before{
+  content: 'By: ';
+}
+
+.book-author {
+  grid-column: 1/3;
+}
+
+.book-pages::before {
+  content: "Pages: ";
+  font-size: 1.25em;
+}
+
+.book-read::before {
+  content: 'State: ';
+}
+
+.book-delete {
+  font-size: 1.2em;
+  grid-column: 1/3;
+  background-color: #ef8d7b;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3em 1.5em;
+  padding-top: 0.5em;
 }
